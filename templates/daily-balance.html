@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block page %}
+    <div class="container my-container">
+        <h2>Daily Balance:</h2>
+        <p>Total: {{ total }}</p>
+        <p>{{ positive }} positive points.</p>
+        <p>{{ negative }} negative points.</p>
+    </div>
+{% endblock %}

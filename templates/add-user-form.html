@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block page %}
+    <div class="container my-container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card grey user-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Add User</h3>
+                        <div class="add-user-form">
+                            <input type="text" class="form-control" id="name-input">
+                            <button class="submit-button btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    $(".submit-button").click(function() {
+        var name = $("#name-input").val()
+
+        $.get("/add-user", {"name": name})
+        .done(function() {
+            location.href = '/';
+        })
+    });
+</script>
+{% endblock %}

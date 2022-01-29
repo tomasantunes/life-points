@@ -1,0 +1,28 @@
+.my-container {
+    padding-top: 25px;
+}
+
+.grey {
+    background-color: #CCC;
+}
+
+.user-card {
+    margin-bottom: 25px;
+}
+
+.user-form {
+    margin-bottom: 25px;
+}
+
+.user-buttons {
+    margin-bottom: 15px;
+}
+
+#name-input {
+    margin-bottom: 15px;
+}
+
+.submit-button-wrapper {
+    text-align: right;
+    padding-top: 15px;
+}

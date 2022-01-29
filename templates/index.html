@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block page %}
+    <div class="container my-container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for i in range(users|length) %}  
+                    <div class="card grey user-card">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ users[i][1] }}</h3>
+                            <p class="card-text">{{ users[i][2] }}</p>
+                            <div class="user-form">
+                                <h5>Points:</h5>
+                                <input type="text" class="form-control" id="value-{{ users[i][0] }}" value="1">
+                                <h5>Justification:</h5>
+                                <input type="text" class="form-control" id="justification-{{ users[i][0] }}">
+                                <div class="submit-button-wrapper">
+                                    <button class="submit-points-button btn btn-primary" id="submit-points-{{ users[i][0] }}">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-4">
+                <h3>Total: {{ total }}</h3>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    $(".submit-points-button").click(function() {
+        var id = $(this).attr("id");
+        var id_number = id.substr(14, id.length);
+        var justification = $("#justification-" + id_number).val();
+        var value = $("#value-" + id_number).val();
+
+        
+        $.get("/submit-points", {"id": id_number, "justification": justification, "value": value })
+        .done(function() {
+            location.reload();
+        })
+    });
+</script>
+{% endblock %}

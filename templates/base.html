@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Life Points</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    </head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Life Points</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" id="home-nav-link">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item" id="daily-balance-nav-link">
+              <a class="nav-link" href="/daily-balance">Daily Balance</a>
+            </li>
+            <li class="nav-item" id="add-user-nav-link">
+                <a class="nav-link" href="/add-user-form">Add User</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+
+    {% block page %}
+    {% endblock %}
+
+    <script>
+        var path = window.location.pathname;
+        if (path == "/") {
+            $(".nav-item").removeClass("active");
+            $("#home-nav-link").addClass("active");
+        }
+        else if (path == "/daily-balance") {
+            $(".nav-item").removeClass("active");
+            $("#daily-balance-nav-link").addClass("active");
+        }
+        else if (path == "/add-user-form") {
+            $(".nav-item").removeClass("active");
+            $("#add-user-nav-link").addClass("active");
+        }
+    </script>
+    
+</body>
+</html>
